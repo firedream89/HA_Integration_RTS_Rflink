@@ -29,9 +29,11 @@ public slots:
     void SerialReadyRead();
     void SerialError(QSerialPort::SerialPortError serialPortError);
     void CreateConfig();
+    void AddingRow();
 
 private:
     Ui::Window *ui;
     QSerialPort *serial;
+    int _counter;
 };
 #endif // WINDOW_H

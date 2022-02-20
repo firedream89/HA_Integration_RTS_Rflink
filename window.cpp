@@ -8,6 +8,8 @@ Window::Window(QWidget *parent)
     ui->setupUi(this);
     serial = new QSerialPort("usb");
 
+    _counter = 0;
+
     //Reading available serial port
     const auto serialPortInfos = QSerialPortInfo::availablePorts();
 
@@ -18,6 +20,7 @@ Window::Window(QWidget *parent)
     connect(ui->createConfig, &QPushButton::clicked, this, &Window::CreateConfig);
     connect(serial, &QSerialPort::readyRead, this, &Window::SerialReadyRead);
     connect(serial, &QSerialPort::errorOccurred, this, &Window::SerialError);
+    connect(ui->addingRow, &QPushButton::clicked, this, &Window::AddingRow);
 }
 
 Window::~Window()
@@ -76,6 +79,19 @@ void Window::SerialError(QSerialPort::SerialPortError serialPortError)
     if (serialPortError == QSerialPort::ReadError) {
         QMessageBox::warning(this,"Error","Reading error !");
         Stop();
+    }
+}
+
+///Adding rows
+void Window::AddingRow()
+{
+    for(int i=0;i<ui->rowNb->text().toInt();i++) {
+        int id = ui->table->rowCount();
+        ui->table->insertRow(id);
+        ui->table->setItem(id,0,new QTableWidgetItem());
+        ui->table->setItem(id,1,new QTableWidgetItem(QString::number(_counter) + "_0"));
+        ui->table->setItem(id,2,new QTableWidgetItem("rts"));
+        _counter++;
     }
 }
 

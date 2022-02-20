@@ -15,15 +15,15 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="0" colspan="2">
-     <spacer name="horizontalSpacer_2">
+    <item row="0" column="2" colspan="2">
+     <spacer name="horizontalSpacer">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>40</width>
-        <height>20</height>
+        <width>180</width>
+        <height>51</height>
        </size>
       </property>
      </spacer>
@@ -31,7 +31,14 @@
     <item row="0" column="0">
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
-       <widget class="QComboBox" name="usb"/>
+       <widget class="QComboBox" name="usb">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="0" column="1">
        <widget class="QPushButton" name="start">
@@ -72,9 +79,42 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0" colspan="2">
+       <layout class="QFormLayout" name="formLayout_3">
+        <item row="0" column="0">
+         <widget class="QSpinBox" name="rowNb">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="addingRow">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Manual</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
      </layout>
     </item>
-    <item row="2" column="2">
+    <item row="4" column="2">
      <widget class="QPushButton" name="createConfig">
       <property name="maximumSize">
        <size>
@@ -87,8 +127,8 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="3">
-     <spacer name="horizontalSpacer_3">
+    <item row="4" column="0" colspan="2">
+     <spacer name="horizontalSpacer_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -100,7 +140,7 @@
       </property>
      </spacer>
     </item>
-    <item row="1" column="0" colspan="4">
+    <item row="3" column="0" colspan="4">
      <widget class="QTableWidget" name="table">
       <column>
        <property name="text">
@@ -119,15 +159,15 @@
       </column>
      </widget>
     </item>
-    <item row="0" column="2" colspan="2">
-     <spacer name="horizontalSpacer">
+    <item row="4" column="3">
+     <spacer name="horizontalSpacer_3">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>180</width>
-        <height>51</height>
+        <width>40</width>
+        <height>20</height>
        </size>
       </property>
      </spacer>
@@ -167,8 +207,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>399</x>
-     <y>11</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
